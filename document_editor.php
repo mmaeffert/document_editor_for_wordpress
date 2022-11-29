@@ -26,27 +26,38 @@ define( 'DOCUMENT_EDITOR_VERSION', '1.0.0' );
 /**
  * This action is documented in includes/class-document-editor-activator.php
  */
-function dce_activate() {
+function document_editor_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-document-editor-activator.php';
-	Plugin_Name_Activator::activate();
+	document_editor_Activator::activate();
 }
-
-/**
- * This action is documented in includes/class-document-editor-deactivator.php
- */
-function dce_deactivate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-document-editor-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'dce_activate' );
-register_deactivation_hook( __FILE__, 'dce_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-document-editor.php';
+
+
+add_action('admin_menu', 'call_admin_menu_generator');
+
+function call_admin_menu_generator(){
+	include plugin_dir_path( __FILE__ ) . 'includes/class-document-editor-activator.php';
+	generate_admin_menu();
+}
+
+
+/**
+ * This action is documented in includes/class-document-editor-deactivator.php
+ */
+function document_editor_deactivate() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-document-editor-deactivator.php';
+	document_editor_Deactivator::deactivate();
+}
+
+register_activation_hook( __FILE__, 'document_editor_activate' );
+register_deactivation_hook( __FILE__, 'document_editor_deactivate' );
+
+
 
 /**
  * Begins execution of the plugin.
@@ -57,10 +68,12 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-document-editor.php';
  *
  * @since    1.0.0
  */
-function dce_run() {
+function document_editor_run() {
 
 	$plugin = new Document_editor();
 	$plugin->run();
 
 }
-dce_run();
+document_editor_run();
+
+
