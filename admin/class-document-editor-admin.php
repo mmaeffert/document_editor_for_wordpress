@@ -41,7 +41,8 @@ class Document_editor_Admin {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->document_editor, plugin_dir_url( __FILE__ ) . 'css/document-editor-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->document_editor, plugin_dir_url( __FILE__ ) . 'css/uikit.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->document_editor, plugin_dir_url( __FILE__ ) . 'css/document-editor.css', array(), $this->version, 'all' );
 
 	}
 
