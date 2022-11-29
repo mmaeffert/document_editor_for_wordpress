@@ -1,25 +1,5 @@
 <?php
 
-/**
- * The admin-specific functionality of the plugin.
- *
- * @link       http://example.com
- * @since      1.0.0
- *
- * @package    document_editor
- * @subpackage document_editor/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    document_editor
- * @subpackage document_editor/admin
- * @author     Your Name <email@example.com>
- */
 class Document_editor_Admin {
 
 	/**
@@ -61,18 +41,6 @@ class Document_editor_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in document_editor_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The document_editor_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->document_editor, plugin_dir_url( __FILE__ ) . 'css/document-editor-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -84,20 +52,10 @@ class Document_editor_Admin {
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in document_editor_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The document_editor_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_script( $this->document_editor, plugin_dir_url( __FILE__ ) . 'js/document-editor-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+
 
 }

@@ -41,8 +41,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-document-editor.php';
 add_action('admin_menu', 'call_admin_menu_generator');
 
 function call_admin_menu_generator(){
-	include plugin_dir_path( __FILE__ ) . 'includes/class-document-editor-activator.php';
+	include plugin_dir_path( __FILE__ ) . 'admin/index.php';
 	generate_admin_menu();
+	generate_template_overview_menu();
+	generate_new_template_menu();
 }
 
 
